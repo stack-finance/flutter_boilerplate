@@ -1,6 +1,6 @@
 # flutter_boilerplate
 
-A new Flutter project.
+A new Flutter project. This is a scable directory structrue for Flutter projects.
 
 ## Getting Started
 

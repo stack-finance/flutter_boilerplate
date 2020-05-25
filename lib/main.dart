@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_boilerplate/shared/providers/name_notifier.dart';
 
 import './routes.dart';
-import './screens/auth/auth_screen.dart';
+import './modules/auth/auth_screen.dart';
 import 'package:provider/provider.dart';
 
 void main() => runApp(MyApp());

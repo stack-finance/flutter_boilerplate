@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import './routes.dart';
 import './modules/auth/auth_screen.dart';
+import './shared/widgets/index.dart';
 
 void main() => runApp(MyApp());
 

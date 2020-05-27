@@ -4,8 +4,6 @@ import 'package:provider/provider.dart';
 import './shared/providers/name_notifier.dart';
 import './routes.dart';
 import './modules/auth/auth_screen.dart';
-import './shared/models/index.dart';
-import './shared/widgets/index.dart';
 
 void main() => runApp(MyApp());
 

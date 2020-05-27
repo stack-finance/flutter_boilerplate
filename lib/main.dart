@@ -4,8 +4,6 @@ import 'package:provider/provider.dart';
 import './shared/providers/name_notifier.dart';
 import './routes.dart';
 import './modules/auth/auth_screen.dart';
-import './shared/models/index.dart';
-import './shared/widgets/index.dart';
 import './shared/data/sharedPreference/sharedPreference.dart';
 
 void main() => runApp(MyApp());
@@ -15,7 +13,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print("build");
     return MultiProvider(
         providers: [
           ChangeNotifierProvider(create: (context) => ClassName()),

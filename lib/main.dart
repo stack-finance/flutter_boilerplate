@@ -23,6 +23,9 @@ class MyApp extends StatelessWidget {
           theme: ThemeData(
             primarySwatch: Colors.blue,
           ),
+          darkTheme: ThemeData(
+            brightness: Brightness.dark,
+          ),
           routes: Routes.routes,
           home: AuthScreen(),
         ));

@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import './shared/providers/name_notifier.dart';
 import './routes.dart';
 import './modules/auth/auth_screen.dart';
+import './styles/app_theme.dart';
 import './shared/data/sharedPreference/sharedPreference.dart';
 
 void main() => runApp(MyApp());
@@ -20,9 +21,7 @@ class MyApp extends StatelessWidget {
         child: MaterialApp(
           debugShowCheckedModeBanner: false,
           title: 'Flutter Demo',
-          theme: ThemeData(
-            primarySwatch: Colors.blue,
-          ),
+          theme: AppTheme2(),
           routes: Routes.routes,
           home: AuthScreen(),
         ));

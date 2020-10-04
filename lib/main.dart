@@ -1,13 +1,18 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import './shared/providers/name_notifier.dart';
-import './routes.dart';
 import './modules/auth/auth_screen.dart';
+import './routes.dart';
 import './styles/app_theme.dart';
-import './shared/data/sharedPreference/sharedPreference.dart';
+import 'shared/providers/name_notifier.dart';
+import 'shared/services/http_service.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  HttpOverrides.global = new MyHttpOverrides();
+  return runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.

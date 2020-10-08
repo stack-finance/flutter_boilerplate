@@ -17,3 +17,12 @@ A new Flutter project. This is a scable directory structrue for Flutter projects
 5. Open your mobile `Settings` > `About Phone` > `Status` > `IP Address` (IP Address will change everytime you connect)
 6. Run `adb connect <your_mobile_ip>` eg: - `adb connect 192.168.1.6`
 7. Remove the USB cable.
+
+## If by using above step you are not able to connect to device than try commands below
+
+1. Run `adb kill-server`
+2. Run `adb usb`
+3. Run `adb tcpip 5555`
+4. Run `adb connect <your_mobile_ip>:5555`
+
+ce0657c677554cba71ec25a7a4084a7ce7e26a22

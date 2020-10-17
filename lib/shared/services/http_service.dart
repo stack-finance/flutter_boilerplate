@@ -1,10 +1,9 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:flutter_boilerplate/app_environment.dart';
+import 'package:flutter_boilerplate/shared/error/http_errors.dart';
 import 'package:http/http.dart';
-
-import '../../../app_environment.dart';
-import '../../shared/error/http_errors.dart';
 
 // authToken to be decided either to be added in query or headers,
 // for now adding authToken to headers.

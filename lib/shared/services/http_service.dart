@@ -1,14 +1,14 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:flutter_boilerplate/app_environment.dart';
 import 'package:flutter_boilerplate/shared/error/http_errors.dart';
+import 'package:flutter_boilerplate/shared/helpers/app_environment.dart';
 import 'package:http/http.dart';
 
 // authToken to be decided either to be added in query or headers,
 // for now adding authToken to headers.
 class HttpService {
-  final String _baseUrl = AppEnvironment().getApiURL();
+  final String _baseUrl = AppEnvironment.getApiURL();
   static String authToken;
 
   Map<String, String> headers = {

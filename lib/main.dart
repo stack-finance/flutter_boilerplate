@@ -6,7 +6,7 @@ import 'package:flutter_boilerplate/modules/auth/auth_screen.dart';
 import 'package:flutter_boilerplate/routes.dart';
 import 'package:flutter_boilerplate/shared/providers/name_notifier.dart';
 import 'package:flutter_boilerplate/shared/services/http_service.dart';
-import 'package:flutter_boilerplate/styles/app_theme.dart';
+import 'package:flutter_boilerplate/styles/index.dart';
 
 void main() {
   HttpOverrides.global = new MyHttpOverrides();
@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
         child: MaterialApp(
           debugShowCheckedModeBanner: false,
           title: 'Flutter Demo',
-          theme: AppTheme2(),
+          theme: themeData,
           routes: Routes.routes,
           home: AuthScreen(),
         ));

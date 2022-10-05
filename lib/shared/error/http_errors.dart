@@ -9,7 +9,7 @@ class HttpException implements Exception {
 }
 
 class FetchDataException extends HttpException {
-  FetchDataException([String message]) : super(message, 'Cannot connect');
+  FetchDataException([String? message]) : super(message, 'Cannot connect');
 }
 
 class BadRequestException extends HttpException {
@@ -21,10 +21,10 @@ class UnauthorisedException extends HttpException {
 }
 
 class InvalidDataException extends HttpException {
-  InvalidDataException([String message]) : super(message, 'Invalid data');
+  InvalidDataException([String? message]) : super(message, 'Invalid data');
 }
 
 class LocalConnectionException extends HttpException {
-  LocalConnectionException([String message])
+  LocalConnectionException([String? message])
       : super(message = 'Cannot find internet connection', 'Network Error');
 }

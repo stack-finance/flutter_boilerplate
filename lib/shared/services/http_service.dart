@@ -9,7 +9,7 @@ import 'package:http/http.dart';
 // for now adding authToken to headers.
 class HttpService {
   final String _baseUrl = AppEnvironment.getApiURL();
-  static String authToken;
+  static String authToken = '';
 
   Map<String, String> headers = {
     'Content-type': 'application/json',
@@ -19,40 +19,39 @@ class HttpService {
 
   Future<dynamic> makeGetRequest(String url) async {
     try {
-      Response response = await get(_baseUrl + url, headers: headers);
+      Response response = await get(Uri.parse(_baseUrl + url), headers: headers);
       return _responseData(response);
     } catch (e) {
-      throw FetchDataException(e);
+      throw FetchDataException(e.toString());
     }
   }
 
   Future<dynamic> makePostRequest(String url, dynamic payload) async {
     try {
       Response response =
-          await post(_baseUrl + url, headers: headers, body: payload);
+          await post(Uri.parse(_baseUrl + url), headers: headers, body: payload);
       return _responseData(response);
     } catch (e) {
-      throw FetchDataException(e);
+      throw FetchDataException(e.toString());
     }
   }
 
   Future<dynamic> makePutRequest(String url, dynamic payload) async {
     try {
       Response response =
-          await put(_baseUrl + url, headers: headers, body: payload);
+          await put(Uri.parse(_baseUrl + url), headers: headers, body: payload);
       return _responseData(response);
     } catch (e) {
-      throw FetchDataException(e);
+      throw FetchDataException(e.toString());
     }
   }
 
   Future<dynamic> makeDeleteRequest(String url) async {
     try {
-      Response response = await delete(_baseUrl + url, headers: headers);
+      Response response = await delete(Uri.parse(_baseUrl + url), headers: headers);
       return _responseData(response);
-      ;
     } catch (e) {
-      throw FetchDataException(e);
+      throw FetchDataException(e.toString());
     }
   }
 
@@ -78,7 +77,7 @@ class HttpService {
 
 class MyHttpOverrides extends HttpOverrides {
   @override
-  HttpClient createHttpClient(SecurityContext context) {
+  HttpClient createHttpClient(SecurityContext? context) {
     return super.createHttpClient(context)
       ..badCertificateCallback =
           (X509Certificate cert, String host, int port) => true;

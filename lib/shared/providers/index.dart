@@ -1,1 +1,1 @@
-import './name_notifier.dart';
+export 'name_notifier.dart';

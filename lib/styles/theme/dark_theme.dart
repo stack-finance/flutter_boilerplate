@@ -5,7 +5,6 @@ class _DarkTheme {
   // ignore: unused_field
   static ThemeData darkThemeData = ThemeData(
     brightness: Brightness.dark,
-    fontFamily: 'Gilroy',
   ).copyWith(
     pageTransitionsTheme: const PageTransitionsTheme(
       builders: {
@@ -17,14 +16,58 @@ class _DarkTheme {
       primary: AppColors.buttonColor,
       secondary: AppColors.buttonColor,
     ),
-    toggleableActiveColor: AppColors.buttonColor,
-    appBarTheme: AppBarTheme(color: AppColors.white),
-    scaffoldBackgroundColor: AppColors.white,
+    appBarTheme: AppBarTheme(color: Colors.white),
+    scaffoldBackgroundColor: Colors.white,
     errorColor: AppColors.textError,
     focusColor: AppColors.inputActive,
     hoverColor: AppColors.inputDefault,
     disabledColor: AppColors.inputDisable,
     primaryColorLight: AppColors.inputDefault,
-    backgroundColor: AppColors.white,
+    checkboxTheme: CheckboxThemeData(
+      fillColor: MaterialStateProperty.resolveWith<Color?>(
+          (Set<MaterialState> states) {
+        if (states.contains(MaterialState.disabled)) {
+          return null;
+        }
+        if (states.contains(MaterialState.selected)) {
+          return AppColors.buttonColor;
+        }
+        return null;
+      }),
+    ),
+    radioTheme: RadioThemeData(
+      fillColor: MaterialStateProperty.resolveWith<Color?>(
+          (Set<MaterialState> states) {
+        if (states.contains(MaterialState.disabled)) {
+          return null;
+        }
+        if (states.contains(MaterialState.selected)) {
+          return AppColors.buttonColor;
+        }
+        return null;
+      }),
+    ),
+    switchTheme: SwitchThemeData(
+      thumbColor: MaterialStateProperty.resolveWith<Color?>(
+          (Set<MaterialState> states) {
+        if (states.contains(MaterialState.disabled)) {
+          return null;
+        }
+        if (states.contains(MaterialState.selected)) {
+          return AppColors.buttonColor;
+        }
+        return null;
+      }),
+      trackColor: MaterialStateProperty.resolveWith<Color?>(
+          (Set<MaterialState> states) {
+        if (states.contains(MaterialState.disabled)) {
+          return null;
+        }
+        if (states.contains(MaterialState.selected)) {
+          return AppColors.buttonColor;
+        }
+        return null;
+      }),
+    ),
   );
 }

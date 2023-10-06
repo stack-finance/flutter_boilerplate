@@ -153,26 +153,22 @@ extension DateTimeExtension on DateTime {
   }
 
   String get timeAgo {
-    var diff = DateTime.now().difference(this);
-    if (diff.inDays > 365) {
-      return "${(diff.inDays / 365).floor()} ${(diff.inDays / 365).floor() == 1 ? "year" : "years"} ago";
-    }
-    if (diff.inDays > 30) {
-      return "${(diff.inDays / 30).floor()} ${(diff.inDays / 30).floor() == 1 ? "month" : "months"} ago";
-    }
-    if (diff.inDays > 7) {
-      return "${(diff.inDays / 7).floor()} ${(diff.inDays / 7).floor() == 1 ? "week" : "weeks"} ago";
-    }
-    if (diff.inDays > 0) {
+    final diff = DateTime.now().difference(this);
+    if (diff.inDays >= 365) {
+      return "${(diff.inDays ~/ 365)} ${diff.inDays ~/ 365 == 1 ? "year" : "years"} ago";
+    } else if (diff.inDays >= 30) {
+      return "${(diff.inDays ~/ 30)} ${diff.inDays ~/ 30 == 1 ? "month" : "months"} ago";
+    } else if (diff.inDays >= 7) {
+      return "${(diff.inDays ~/ 7)} ${diff.inDays ~/ 7 == 1 ? "week" : "weeks"} ago";
+    } else if (diff.inDays >= 1) {
       return "${diff.inDays} ${diff.inDays == 1 ? "day" : "days"} ago";
-    }
-    if (diff.inHours > 0) {
+    } else if (diff.inHours >= 1) {
       return "${diff.inHours} ${diff.inHours == 1 ? "hour" : "hours"} ago";
-    }
-    if (diff.inMinutes > 0) {
+    } else if (diff.inMinutes >= 1) {
       return "${diff.inMinutes} ${diff.inMinutes == 1 ? "minute" : "minutes"} ago";
+    } else {
+      return 'just now';
     }
-    return 'just now';
   }
 
   int get customWeekday {

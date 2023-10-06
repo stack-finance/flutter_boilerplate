@@ -11,3 +11,9 @@ Future<String?> getPreference(String key) async {
 
   return value;
 }
+
+// Clear all values from the shared preferences.
+void clearPreferences() async {
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  prefs.clear();
+}
